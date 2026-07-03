@@ -3,214 +3,235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gøteborg Invitational</title>
+<title>Gøteborg Invitational — July 10–12, 2026</title>
+<meta name="description" content="Gøteborg Invitational 2026 — 7 friends, 3 rounds, 1 trophy. Sankt Jörgen Park Golf, Göteborg, July 10–12.">
+<meta property="og:title" content="Gøteborg Invitational 2026">
+<meta property="og:description" content="7 friends. 1 trophy. Zero chill. Sankt Jörgen Park, Göteborg — July 10–12, 2026.">
+<meta property="og:image" content="assets/logo.png">
+<link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/+esm",
+    "gsap/ScrollTrigger": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/ScrollTrigger.js/+esm",
+    "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.1.14/+esm",
+    "canvas-confetti": "https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/+esm"
+  }
+}
+</script>
 </head>
 <body>
 
-<div class="progress-bar" id="progressBar"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
-<header class="hero">
-  <div class="floating-ball b1"></div>
-  <div class="floating-ball b2"></div>
-  <div class="floating-ball b3"></div>
-  <div class="floating-ball b4"></div>
-  <div class="floating-ball b5"></div>
+<nav class="nav" id="nav" aria-label="Main">
+  <a href="#home" class="nav-logo" data-cursor>
+    <img src="assets/logo.png" alt="Gøteborg Invitational logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#countdown" data-cursor>Tee&nbsp;Times</a></li>
+    <li><a href="#players" data-cursor>Players</a></li>
+    <li><a href="#venue" data-cursor>Venue</a></li>
+    <li><a href="#schedule" data-cursor>Schedule</a></li>
+    <li><a href="#leaderboard" data-cursor>Board</a></li>
+    <li><a href="#game" data-cursor>19th&nbsp;Hole</a></li>
+  </ul>
+</nav>
 
-  <nav class="navbar" id="navbar">
-    <div class="logo-mark">⛳</div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#players">Players</a></li>
-      <li><a href="#venue">Venue</a></li>
-      <li><a href="#schedule">Schedule</a></li>
-      <li><a href="#leaderboard">Leaderboard</a></li>
-    </ul>
-  </nav>
-
-  <div class="hero-content" id="home">
-    <img src="assets/logo.png" alt="Gøteborg Invitational logo" class="logo-img">
-    <h1 class="hero-title">Gøteborg Invitational</h1>
-    <p class="hero-subtitle">7 friends. 1 trophy. Zero chill.</p>
-    <div class="hero-meta">
-      <span>📅 July 10–12, 2026</span>
-      <span>📍 Sankt Jörgen Park, Göteborg</span>
-      <span>🏆 Winner takes all the bragging rights</span>
-    </div>
-
-    <div class="countdown" id="countdown" data-target="2026-07-10T16:00:00">
-      <div class="countdown-item"><span class="countdown-value" id="cd-days">00</span><span class="countdown-label">Days</span></div>
-      <div class="countdown-item"><span class="countdown-value" id="cd-hours">00</span><span class="countdown-label">Hours</span></div>
-      <div class="countdown-item"><span class="countdown-value" id="cd-mins">00</span><span class="countdown-label">Min</span></div>
-      <div class="countdown-item"><span class="countdown-value" id="cd-secs">00</span><span class="countdown-label">Sec</span></div>
+<!-- ============================== HERO ============================== -->
+<header class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-content">
+    <img src="assets/logo.png" alt="" class="hero-logo" data-hero-fade>
+    <p class="hero-kicker" data-hero-fade>July 10–12, 2026 · Sankt Jörgen Park · Göteborg</p>
+    <h1 class="hero-title">
+      <span class="ht-line"><span class="ht-word">Gøteborg</span></span>
+      <span class="ht-line"><span class="ht-word gold">Invitational</span></span>
+    </h1>
+    <p class="hero-sub" data-hero-fade>7 friends. 1 trophy. Zero chill.</p>
+    <div class="hero-cta" data-hero-fade>
+      <a href="#players" class="btn btn-gold magnetic" data-cursor>Meet the field</a>
+      <a href="#countdown" class="btn btn-ghost magnetic" data-cursor>Tee times</a>
     </div>
   </div>
+  <div class="scroll-cue" aria-hidden="true"><span></span></div>
 </header>
 
 <main>
 
-  <section id="players" class="section">
-    <h2 class="section-title reveal">The Players</h2>
-    <p class="section-sub reveal">7 legends. Handicaps don't lie (except when they do).</p>
-
-    <div class="player-grid">
-
-      <div class="player-card reveal">
-        <div class="card-badge">🏆 Defending Champ*</div>
-        <div class="avatar">⛳</div>
-        <h3>Jørgen Bugge</h3>
-        <p class="nickname">"The Machine"</p>
-        <p class="handicap">Handicap: <span class="counter" data-target="9">0</span></p>
-        <p class="bio">The only single-digit handicap in the field. Plays like he's got a sponsorship deal on the line.</p>
-        <p class="weakness">⚠️ Weakness: everyone else's terrible energy dragging him down</p>
-      </div>
-
-      <div class="player-card reveal">
-        <div class="card-badge">🎯 Most Consistent</div>
-        <div class="avatar">🏌️</div>
-        <h3>Konrad Blix</h3>
-        <p class="nickname">"Mr. Steady"</p>
-        <p class="handicap">Handicap: <span class="counter" data-target="12">0</span></p>
-        <p class="bio">Never the flashiest round, always in the mix. The dark horse everyone forgets about until Sunday.</p>
-        <p class="weakness">⚠️ Weakness: getting cocky on the front nine</p>
-      </div>
-
-      <div class="player-card reveal">
-        <div class="card-badge">🥷 Sneaky Good</div>
-        <div class="avatar">🧑‍🦰</div>
-        <h3>Adrian Kristiansen</h3>
-        <p class="nickname">"The Ninja"</p>
-        <p class="handicap">Handicap: <span class="counter" data-target="13.4">0</span></p>
-        <p class="bio">Says he "hasn't played much this year." Shoots 82 anyway.</p>
-        <p class="weakness">⚠️ Weakness: false modesty</p>
-      </div>
-
-      <div class="player-card reveal">
-        <div class="card-badge">🎲 The Wildcard</div>
-        <div class="avatar">🧔</div>
-        <h3>Karl-Henrik Stenkjær</h3>
-        <p class="nickname">"KH"</p>
-        <p class="handicap">Handicap: <span class="counter" data-target="14.7">0</span></p>
-        <p class="bio">Capable of a 75 and a 95 in the same weekend. Nobody, including him, knows which one shows up.</p>
-        <p class="weakness">⚠️ Weakness: the first tee shot with everyone watching</p>
-      </div>
-
-      <div class="player-card reveal">
-        <div class="card-badge">📈 Most Improved (Allegedly)</div>
-        <div class="avatar">👨‍🦱</div>
-        <h3>Christoffer Frantzen</h3>
-        <p class="nickname">"Chris"</p>
-        <p class="handicap">Handicap: <span class="counter" data-target="25.3">0</span></p>
-        <p class="bio">Took a lesson once in 2019 and has been dining out on it ever since.</p>
-        <p class="weakness">⚠️ Weakness: bunkers, rough, and fairways</p>
-      </div>
-
-      <div class="player-card reveal">
-        <div class="card-badge">🌊 Aqua Man</div>
-        <div class="avatar">🧑‍🦲</div>
-        <h3>Rudi Fozzen Holdal</h3>
-        <p class="nickname">"Splash"</p>
-        <p class="handicap">Handicap: <span class="counter" data-target="31.5">0</span></p>
-        <p class="bio">Single-handedly keeps the course's ball-diving business profitable.</p>
-        <p class="weakness">⚠️ Weakness: literally any body of water</p>
-      </div>
-
-      <div class="player-card reveal">
-        <div class="card-badge">💻 Commissioner & Website Guy</div>
-        <div class="avatar">🧑‍💻</div>
-        <h3>Jacob Fæste Jentoft</h3>
-        <p class="nickname">"The Webmaster"</p>
-        <p class="handicap">Handicap: <span class="counter" data-target="36.7">0</span></p>
-        <p class="bio">Built this entire website himself, presumably to distract everyone from his handicap.</p>
-        <p class="weakness">⚠️ Weakness: golf in general</p>
-      </div>
-
+<!-- ============================ COUNTDOWN ============================ -->
+<section class="sec sec-countdown" id="countdown" aria-label="Countdown to next tee time">
+  <div class="cd-stage">
+    <p class="cd-mission" data-reveal>Mission clock · <span id="cdRound">Round 1</span></p>
+    <div class="cd-digits" id="cdDigits" data-reveal>
+      <div class="cd-cell"><span class="cd-num" id="cd-d">--</span><span class="cd-lab">days</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-cell"><span class="cd-num" id="cd-h">--</span><span class="cd-lab">hours</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-cell"><span class="cd-num" id="cd-m">--</span><span class="cd-lab">min</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-cell"><span class="cd-num" id="cd-s">--</span><span class="cd-lab">sec</span></div>
     </div>
-  </section>
+    <p class="cd-status" id="cdStatus" data-reveal>until wheels down on the first tee</p>
 
-  <section id="venue" class="section alt">
-    <h2 class="section-title reveal">The Venue</h2>
-    <p class="section-sub reveal">Sankt Jörgen Park — where we'll golf badly in style.</p>
+    <ol class="mission-list" id="missionList">
+      <li data-reveal><span class="ml-round">R1</span><span class="ml-day">Fri July 10</span><span class="ml-time">16:00</span><span class="ml-label">Opening Tee-Off</span></li>
+      <li data-reveal><span class="ml-round">R2</span><span class="ml-day">Sat July 11</span><span class="ml-time">13:00</span><span class="ml-label">Moving Day</span></li>
+      <li data-reveal><span class="ml-round">R3</span><span class="ml-day">Sun July 12</span><button class="ml-time ml-time-btn" id="eleven03" data-cursor title="Yes. 11:03.">11:03</button><span class="ml-label">The Final Round</span></li>
+    </ol>
+    <p class="cd-footnote" id="eleven03Joke" data-reveal>* Round 3 tees off at exactly 11:03. Not 11:00. Ask the booking system.</p>
+  </div>
+</section>
 
-    <div class="venue-grid">
-      <div class="venue-card reveal">
-        <div class="venue-icon">⛳</div>
-        <h3>Sankt Jörgen Park Golf</h3>
-        <p>An 18-hole course set in well-maintained parkland just outside Göteborg — think fresh air, tidy fairways, and plenty of birdsong (and, per tradition, plenty of double bogeys).</p>
-        <p><a href="https://www.sanktjorgenpark.se/paket/golfpaket" target="_blank" rel="noopener">View the golf packages →</a></p>
-      </div>
-      <div class="venue-card reveal">
-        <div class="venue-icon">🏨</div>
-        <h3>Staying On-Site</h3>
-        <p>We're staying right at Sankt Jörgen Park resort — heated Pool Club with cabanas, a spa, an on-site winery, and the Inez &amp; Ernst restaurant for the post-round debrief and inevitable score disputes.</p>
-        <p>Basically: golf by day, resort life by evening. No excuse to play badly.</p>
-      </div>
+<!-- ============================= PLAYERS ============================= -->
+<section class="sec sec-players" id="players">
+  <header class="sec-head">
+    <p class="sec-kicker" data-reveal>The field</p>
+    <h2 class="sec-title" data-words>Select your player</h2>
+    <p class="sec-sub" data-reveal>7 legends. Handicaps don’t lie (except when they do). Tap a card to flip it.</p>
+  </header>
+  <div class="player-grid" id="playerGrid">
+    <noscript>
+      <p>Jørgen Bugge (9) · Konrad Blix (12) · Adrian Kristiansen (13,4) · Karl-Henrik Stenkjær (14,7) ·
+      Christoffer Frantzen (25,3) · Rudi Fozzen Holdal (31,5) · Jacob Fæste Jentoft (36,7)</p>
+    </noscript>
+  </div>
+  <p class="players-footnote" data-reveal>* “Defending Champ” is self-declared. There has never been a previous edition.</p>
+</section>
+
+<!-- ============================== VENUE ============================== -->
+<section class="sec sec-venue" id="venue">
+  <header class="sec-head">
+    <p class="sec-kicker" data-reveal>The venue</p>
+    <h2 class="sec-title" data-words>Sankt Jörgen Park</h2>
+    <p class="sec-sub" data-reveal>We’re staying on-site all weekend. Golf by day, resort life by night. No excuses.</p>
+  </header>
+
+  <div class="venue-pin">
+    <div class="venue-track" id="venueTrack">
+      <article class="venue-panel">
+        <span class="vp-num">01</span>
+        <h3>The Course</h3>
+        <p>18 holes of manicured parkland just outside Göteborg. Fresh air, tidy fairways, birdsong — and, per tradition, plenty of double bogeys.</p>
+        <a class="btn btn-ghost magnetic" data-cursor href="https://www.sanktjorgenpark.se/paket/golfpaket" target="_blank" rel="noopener">Golf packages ↗</a>
+      </article>
+      <article class="venue-panel">
+        <span class="vp-num">02</span>
+        <h3>The Pool Club</h3>
+        <p>Heated pool, cabanas, and zero wind. Official recovery station for wounded egos and sunburnt forearms.</p>
+      </article>
+      <article class="venue-panel">
+        <span class="vp-num">03</span>
+        <h3>Spa &amp; Winery</h3>
+        <p>Yes, the resort has its own winery. No, that is not a valid excuse for Saturday’s scores. The spa is for whoever three-putts the most.</p>
+      </article>
+      <article class="venue-panel">
+        <span class="vp-num">04</span>
+        <h3>Inez &amp; Ernst</h3>
+        <p>The restaurant where the day’s leaderboard gets disputed nightly. Bring receipts, scorecards, and witnesses.</p>
+      </article>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="schedule" class="section">
-    <h2 class="section-title reveal">Schedule</h2>
-    <p class="section-sub reveal">Three rounds, three tee times, zero warm-up swings.</p>
+<!-- ============================= SCHEDULE ============================= -->
+<section class="sec sec-schedule" id="schedule">
+  <header class="sec-head">
+    <p class="sec-kicker" data-reveal>The plan</p>
+    <h2 class="sec-title" data-words>Three rounds</h2>
+    <p class="sec-sub" data-reveal>Three tee times. Zero warm-up swings.</p>
+  </header>
 
-    <div class="schedule-grid">
-      <div class="schedule-card reveal">
-        <div class="schedule-day">Friday</div>
-        <div class="schedule-date">July 10</div>
-        <div class="schedule-time">16:00</div>
-        <p class="schedule-label">Round 1 — Opening Tee-Off</p>
-      </div>
-      <div class="schedule-card reveal">
-        <div class="schedule-day">Saturday</div>
-        <div class="schedule-date">July 11</div>
-        <div class="schedule-time">13:00</div>
-        <p class="schedule-label">Round 2 — Moving Day</p>
-      </div>
-      <div class="schedule-card reveal">
-        <div class="schedule-day">Sunday</div>
-        <div class="schedule-date">July 12</div>
-        <div class="schedule-time">11:03</div>
-        <p class="schedule-label">Round 3 — Final Round (very specifically 11:03)</p>
-      </div>
-    </div>
-  </section>
+  <div class="timeline">
+    <div class="timeline-line" aria-hidden="true"><span id="timelineFill"></span></div>
+    <article class="tl-item" data-reveal>
+      <div class="tl-dot" aria-hidden="true"></div>
+      <p class="tl-day">Friday · July 10</p>
+      <p class="tl-time">16:00</p>
+      <h3>Round 1 — Opening Tee-Off</h3>
+      <p class="tl-note">First blood. KH’s hands are already shaking.</p>
+    </article>
+    <article class="tl-item" data-reveal>
+      <div class="tl-dot" aria-hidden="true"></div>
+      <p class="tl-day">Saturday · July 11</p>
+      <p class="tl-time">13:00</p>
+      <h3>Round 2 — Moving Day</h3>
+      <p class="tl-note">Where Konrad quietly climbs and nobody notices until it’s too late.</p>
+    </article>
+    <article class="tl-item" data-reveal>
+      <div class="tl-dot" aria-hidden="true"></div>
+      <p class="tl-day">Sunday · July 12</p>
+      <p class="tl-time tl-time-odd">11:03</p>
+      <h3>Round 3 — The Final Round</h3>
+      <p class="tl-note">Very specifically 11:03. The trophy is decided. So are the excuses.</p>
+    </article>
+  </div>
+</section>
 
-  <section id="leaderboard" class="section alt">
-    <h2 class="section-title reveal">Leaderboard</h2>
-    <p class="section-sub reveal">Placeholder standings — will update live during the tournament.</p>
+<!-- ============================ LEADERBOARD ============================ -->
+<section class="sec sec-board" id="leaderboard">
+  <header class="sec-head">
+    <p class="sec-kicker" data-reveal>Standings</p>
+    <h2 class="sec-title" data-words>Leaderboard</h2>
+    <p class="sec-sub" data-reveal>Updates live during the weekend. Disputes handled at Inez &amp; Ernst.</p>
+  </header>
 
-    <table class="leaderboard-table reveal">
+  <div class="board-wrap" data-reveal>
+    <table class="board">
       <thead>
-        <tr>
-          <th>Pos</th>
-          <th>Player</th>
-          <th>Round 1</th>
-          <th>Round 2</th>
-          <th>Round 3</th>
-          <th>Total</th>
-        </tr>
+        <tr><th class="pos">Pos</th><th class="player">Player</th><th>R1</th><th>R2</th><th>R3</th><th class="tot">Total</th></tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td>Jørgen Bugge</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>2</td><td>Konrad Blix</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>3</td><td>Adrian Kristiansen</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>4</td><td>Karl-Henrik Stenkjær</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>5</td><td>Christoffer Frantzen</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>6</td><td>Rudi Fozzen Holdal</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>7</td><td>Jacob Fæste Jentoft</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td class="pos">1</td><td class="player">Jørgen Bugge <span>The Machine</span></td><td>—</td><td>—</td><td>—</td><td class="tot">—</td></tr>
+        <tr><td class="pos">2</td><td class="player">Konrad Blix <span>Mr. Steady</span></td><td>—</td><td>—</td><td>—</td><td class="tot">—</td></tr>
+        <tr><td class="pos">3</td><td class="player">Adrian Kristiansen <span>The Ninja</span></td><td>—</td><td>—</td><td>—</td><td class="tot">—</td></tr>
+        <tr><td class="pos">4</td><td class="player">Karl-Henrik Stenkjær <span>KH</span></td><td>—</td><td>—</td><td>—</td><td class="tot">—</td></tr>
+        <tr><td class="pos">5</td><td class="player">Christoffer Frantzen <span>Chris</span></td><td>—</td><td>—</td><td>—</td><td class="tot">—</td></tr>
+        <tr><td class="pos">6</td><td class="player">Rudi Fozzen Holdal <span>Splash</span></td><td>—</td><td>—</td><td>—</td><td class="tot">—</td></tr>
+        <tr><td class="pos">7</td><td class="player">Jacob Fæste Jentoft <span>The Webmaster</span></td><td>—</td><td>—</td><td>—</td><td class="tot">—</td></tr>
       </tbody>
     </table>
-  </section>
+  </div>
+</section>
+
+<!-- ============================ MINI-GAME ============================ -->
+<section class="sec sec-game" id="game">
+  <header class="sec-head">
+    <p class="sec-kicker" data-reveal>Easter egg</p>
+    <h2 class="sec-title" data-words>The 19th hole</h2>
+    <p class="sec-sub" data-reveal>The Webmaster couldn’t fix his swing, so he built one he could control.<br>
+    Drag back from the ball, release to putt. Don’t find the water — that’s the <strong>Rudi tax</strong> (+1).</p>
+  </header>
+
+  <div class="putt-wrap" data-reveal>
+    <div class="putt-hud">
+      <span>Strokes: <strong id="puttStrokes">0</strong></span>
+      <span>Clubhouse record: <strong id="puttBest">—</strong></span>
+      <button class="btn btn-ghost btn-sm magnetic" id="puttReset" data-cursor>Reset</button>
+    </div>
+    <canvas id="puttCanvas" aria-label="Putting mini-game: drag from the ball and release to putt"></canvas>
+    <p class="putt-msg" id="puttMsg">Drag, release, glory.</p>
+  </div>
+</section>
 
 </main>
 
 <footer class="footer">
-  <p>Gøteborg Invitational — built with Claude Code, mostly out of spite for bad golf swings.</p>
+  <img src="assets/logo.png" alt="" class="footer-logo">
+  <p>Gøteborg Invitational · July 10–12, 2026 · Sankt Jörgen Park, Göteborg</p>
+  <p class="footer-joke">Built by The Webmaster (hcp 36,7) — the site is carrying his tournament.<br>
+  Made with Claude Code, mostly out of spite for bad golf swings.</p>
 </footer>
 
-<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
-
-<script src="js/script.js"></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
