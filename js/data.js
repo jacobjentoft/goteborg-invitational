@@ -10,7 +10,7 @@ export const ROUNDS = [
 export const PLAYERS = [
   {
     name: 'Jørgen Bugge',
-    nickname: 'The Machine',
+    nickname: 'Bæ-Bu',
     hcp: 9,
     badge: '🏆 Defending Champ*',
     bio: 'The only single-digit handicap in the field. Plays like he’s got a sponsorship deal on the line.',
@@ -20,7 +20,7 @@ export const PLAYERS = [
   },
   {
     name: 'Konrad Blix',
-    nickname: 'Mr. Steady',
+    nickname: 'John Fette Daly',
     hcp: 12,
     badge: '🎯 Most Consistent',
     bio: 'Never the flashiest round, always in the mix. The dark horse everyone forgets about until Sunday.',
@@ -30,7 +30,7 @@ export const PLAYERS = [
   },
   {
     name: 'Adrian Kristiansen',
-    nickname: 'The Ninja',
+    nickname: 'Andreas',
     hcp: 13.4,
     badge: '🥷 Sneaky Good',
     bio: 'Says he “hasn’t played much this year.” Shoots 82 anyway.',
@@ -40,7 +40,7 @@ export const PLAYERS = [
   },
   {
     name: 'Karl-Henrik Stenkjær',
-    nickname: 'KH',
+    nickname: 'The Keeper',
     hcp: 14.7,
     badge: '🎲 The Wildcard',
     bio: 'Capable of a 75 and a 95 in the same weekend. Nobody, including him, knows which one shows up.',
@@ -50,7 +50,7 @@ export const PLAYERS = [
   },
   {
     name: 'Christoffer Frantzen',
-    nickname: 'Chris',
+    nickname: 'Frantza',
     hcp: 25.3,
     badge: '📈 Most Improved (Allegedly)',
     bio: 'Took a lesson once in 2019 and has been dining out on it ever since.',
@@ -60,7 +60,7 @@ export const PLAYERS = [
   },
   {
     name: 'Rudi Fozzen Holdal',
-    nickname: 'Splash',
+    nickname: 'Rude Mcilroy',
     hcp: 31.5,
     badge: '🌊 Aqua Man',
     bio: 'Single-handedly keeps the course’s ball-diving business profitable.',
@@ -70,7 +70,7 @@ export const PLAYERS = [
   },
   {
     name: 'Jacob Fæste Jentoft',
-    nickname: 'The Webmaster',
+    nickname: 'Daddy',
     hcp: 36.7,
     badge: '💻 Commissioner & Website Guy',
     bio: 'Built this entire website himself, presumably to distract everyone from his handicap.',
