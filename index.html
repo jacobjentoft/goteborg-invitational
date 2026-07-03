@@ -16,18 +16,19 @@
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#players">Players</a></li>
+      <li><a href="#venue">Venue</a></li>
       <li><a href="#leaderboard">Leaderboard</a></li>
       <li><a href="#awards">Awards</a></li>
     </ul>
   </nav>
 
   <div class="hero-content" id="home">
-    <div class="logo-placeholder">🏌️‍♂️ LOGO HERE 🏌️</div>
+    <img src="assets/logo.png" alt="Gøteborg Invitational logo" class="logo-img">
     <h1 class="hero-title">Gøteborg Invitational</h1>
     <p class="hero-subtitle">7 friends. 1 trophy. Zero chill.</p>
     <div class="hero-meta">
       <span>📅 Next Weekend</span>
-      <span>📍 Göteborg, Sweden</span>
+      <span>📍 Sankt Jörgen Park, Göteborg</span>
       <span>🏆 Winner takes all the bragging rights</span>
     </div>
   </div>
@@ -37,80 +38,100 @@
 
   <section id="players" class="section">
     <h2 class="section-title">The Players</h2>
-    <p class="section-sub">7 legends (self-proclaimed). Real bios coming soon — for now, enjoy the placeholders.</p>
+    <p class="section-sub">7 legends. Handicaps don't lie (except when they do).</p>
 
     <div class="player-grid">
 
       <div class="player-card">
         <div class="card-badge">🏆 Defending Champ*</div>
-        <div class="avatar">🧑‍🦱</div>
-        <h3>Player One</h3>
-        <p class="nickname">"The Sandbagger"</p>
-        <p class="handicap">Handicap: 12 (allegedly)</p>
-        <p class="bio">Claims to have shot par once. No one was there to see it.</p>
-        <p class="weakness">⚠️ Weakness: any hole with water</p>
-      </div>
-
-      <div class="player-card">
-        <div class="card-badge">🎯 Most Confident</div>
-        <div class="avatar">🧑</div>
-        <h3>Player Two</h3>
-        <p class="nickname">"Two-Putt"</p>
-        <p class="handicap">Handicap: 18</p>
-        <p class="bio">Owns more golf gear than skill. Vibes are immaculate though.</p>
-        <p class="weakness">⚠️ Weakness: putting after 2pm</p>
-      </div>
-
-      <div class="player-card">
-        <div class="card-badge">🐢 Slowest Round</div>
-        <div class="avatar">🧔</div>
-        <h3>Player Three</h3>
-        <p class="nickname">"The Analyst"</p>
+        <div class="avatar">⛳</div>
+        <h3>Jørgen Bugge</h3>
+        <p class="nickname">"The Machine"</p>
         <p class="handicap">Handicap: 9</p>
-        <p class="bio">Reads every putt like it's a chess match. Group behind us hates him.</p>
-        <p class="weakness">⚠️ Weakness: overthinking</p>
+        <p class="bio">The only single-digit handicap in the field. Plays like he's got a sponsorship deal on the line.</p>
+        <p class="weakness">⚠️ Weakness: everyone else's terrible energy dragging him down</p>
       </div>
 
       <div class="player-card">
-        <div class="card-badge">💥 Loudest Celebration</div>
-        <div class="avatar">👨‍🦳</div>
-        <h3>Player Four</h3>
-        <p class="nickname">"Big Energy"</p>
-        <p class="handicap">Handicap: 15</p>
-        <p class="bio">One good shot per round, celebrated like a major win.</p>
-        <p class="weakness">⚠️ Weakness: consistency</p>
+        <div class="card-badge">🎯 Most Consistent</div>
+        <div class="avatar">🏌️</div>
+        <h3>Konrad Blix</h3>
+        <p class="nickname">"Mr. Steady"</p>
+        <p class="handicap">Handicap: 12</p>
+        <p class="bio">Never the flashiest round, always in the mix. The dark horse everyone forgets about until Sunday.</p>
+        <p class="weakness">⚠️ Weakness: getting cocky on the front nine</p>
       </div>
 
       <div class="player-card">
-        <div class="card-badge">🌊 Most Lost Balls</div>
+        <div class="card-badge">🥷 Sneaky Good</div>
         <div class="avatar">🧑‍🦰</div>
-        <h3>Player Five</h3>
-        <p class="nickname">"Splash"</p>
-        <p class="handicap">Handicap: 20</p>
-        <p class="bio">Personally funds the local lost-ball economy.</p>
-        <p class="weakness">⚠️ Weakness: literally water</p>
+        <h3>Adrian Kristiansen</h3>
+        <p class="nickname">"The Ninja"</p>
+        <p class="handicap">Handicap: 13,4</p>
+        <p class="bio">Says he "hasn't played much this year." Shoots 82 anyway.</p>
+        <p class="weakness">⚠️ Weakness: false modesty</p>
       </div>
 
       <div class="player-card">
-        <div class="card-badge">📈 Dark Horse</div>
+        <div class="card-badge">🎲 The Wildcard</div>
+        <div class="avatar">🧔</div>
+        <h3>Karl-Henrik Stenkjær</h3>
+        <p class="nickname">"KH"</p>
+        <p class="handicap">Handicap: 14,7</p>
+        <p class="bio">Capable of a 75 and a 95 in the same weekend. Nobody, including him, knows which one shows up.</p>
+        <p class="weakness">⚠️ Weakness: the first tee shot with everyone watching</p>
+      </div>
+
+      <div class="player-card">
+        <div class="card-badge">📈 Most Improved (Allegedly)</div>
+        <div class="avatar">👨‍🦱</div>
+        <h3>Christoffer Frantzen</h3>
+        <p class="nickname">"Chris"</p>
+        <p class="handicap">Handicap: 25,3</p>
+        <p class="bio">Took a lesson once in 2019 and has been dining out on it ever since.</p>
+        <p class="weakness">⚠️ Weakness: bunkers, rough, and fairways</p>
+      </div>
+
+      <div class="player-card">
+        <div class="card-badge">🌊 Aqua Man</div>
         <div class="avatar">🧑‍🦲</div>
-        <h3>Player Six</h3>
-        <p class="nickname">"The Ghost"</p>
-        <p class="handicap">Handicap: unknown</p>
-        <p class="bio">Nobody has seen him practice, yet he's always near the top.</p>
-        <p class="weakness">⚠️ Weakness: pressure putts (maybe)</p>
+        <h3>Rudi Fozzen Holdal</h3>
+        <p class="nickname">"Splash"</p>
+        <p class="handicap">Handicap: 31,5</p>
+        <p class="bio">Single-handedly keeps the course's ball-diving business profitable.</p>
+        <p class="weakness">⚠️ Weakness: literally any body of water</p>
       </div>
 
       <div class="player-card">
-        <div class="card-badge">🗣️ Best Trash Talk</div>
-        <div class="avatar">🧑‍🦱</div>
-        <h3>Player Seven</h3>
-        <p class="nickname">"The Mouth"</p>
-        <p class="handicap">Handicap: 14</p>
-        <p class="bio">Plays worse under his own commentary. Can't stop, won't stop.</p>
-        <p class="weakness">⚠️ Weakness: his own trash talk</p>
+        <div class="card-badge">💻 Commissioner & Website Guy</div>
+        <div class="avatar">🧑‍💻</div>
+        <h3>Jacob Fæste Jentoft</h3>
+        <p class="nickname">"The Webmaster"</p>
+        <p class="handicap">Handicap: 36,7</p>
+        <p class="bio">Built this entire website himself, presumably to distract everyone from his handicap.</p>
+        <p class="weakness">⚠️ Weakness: golf in general</p>
       </div>
 
+    </div>
+  </section>
+
+  <section id="venue" class="section alt">
+    <h2 class="section-title">The Venue</h2>
+    <p class="section-sub">Sankt Jörgen Park — where we'll golf badly in style.</p>
+
+    <div class="venue-grid">
+      <div class="venue-card">
+        <div class="venue-icon">⛳</div>
+        <h3>Sankt Jörgen Park Golf</h3>
+        <p>An 18-hole course set in well-maintained parkland just outside Göteborg — think fresh air, tidy fairways, and plenty of birdsong (and, per tradition, plenty of double bogeys).</p>
+        <p><a href="https://www.sanktjorgenpark.se/paket/golfpaket" target="_blank" rel="noopener">View the golf packages →</a></p>
+      </div>
+      <div class="venue-card">
+        <div class="venue-icon">🏨</div>
+        <h3>Staying On-Site</h3>
+        <p>We're staying right at Sankt Jörgen Park resort — heated Pool Club with cabanas, a spa, an on-site winery, and the Inez &amp; Ernst restaurant for the post-round debrief and inevitable score disputes.</p>
+        <p>Basically: golf by day, resort life by evening. No excuse to play badly.</p>
+      </div>
     </div>
   </section>
 
@@ -129,13 +150,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td>Player One</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>2</td><td>Player Six</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>3</td><td>Player Two</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>4</td><td>Player Seven</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>5</td><td>Player Four</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>6</td><td>Player Three</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>7</td><td>Player Five</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>1</td><td>Jørgen Bugge</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>2</td><td>Konrad Blix</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>3</td><td>Adrian Kristiansen</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>4</td><td>Karl-Henrik Stenkjær</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>5</td><td>Christoffer Frantzen</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>6</td><td>Rudi Fozzen Holdal</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>7</td><td>Jacob Fæste Jentoft</td><td>—</td><td>—</td><td>—</td></tr>
       </tbody>
     </table>
   </section>
