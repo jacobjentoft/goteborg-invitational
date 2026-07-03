@@ -13,11 +13,19 @@ function cardHTML(p, i) {
       <span class="bar"><i style="--w:${Math.max(v, 3)}%"></i></span>
     </div>`).join('');
 
+  // avatar upgrades from emoji to a photo when data.js gets a `photo` path
+  const avatar = p.photo
+    ? `<img src="${p.photo}" alt="" loading="lazy">`
+    : p.avatar;
+  const link = p.link
+    ? `<a class="pcard-link" href="${p.link.url}" target="_blank" rel="noopener" data-cursor>${p.link.label} ↗</a>`
+    : '';
+
   return `
   <div class="pcard-inner">
     <div class="pcard-face pcard-front">
       <span class="pcard-no">P${i + 1} / ${PLAYERS.length}</span>
-      <div class="pcard-avatar">${p.avatar}</div>
+      <div class="pcard-avatar">${avatar}</div>
       <h3 class="pcard-name">${p.name}</h3>
       <p class="pcard-nick">“${p.nickname}”</p>
       <div class="pcard-hcp">
@@ -30,6 +38,7 @@ function cardHTML(p, i) {
     <div class="pcard-face pcard-back">
       <p class="pcard-badge">${p.badge}</p>
       <p class="pcard-bio">${p.bio}</p>
+      ${link}
       <p class="pcard-weak"><b>⚠ Weakness</b><br>${p.weakness}</p>
       <div class="pcard-stats">${stats}</div>
       <div class="pcard-foil"></div>
@@ -70,7 +79,10 @@ export function initCards({ reducedMotion }) {
       const flipped = card.classList.toggle('is-flipped');
       card.setAttribute('aria-pressed', String(flipped));
     };
-    card.addEventListener('click', flip);
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return; // links on the back navigate, not flip
+      flip();
+    });
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
     });
