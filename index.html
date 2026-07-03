@@ -10,8 +10,16 @@
 </head>
 <body>
 
+<div class="progress-bar" id="progressBar"></div>
+
 <header class="hero">
-  <nav class="navbar">
+  <div class="floating-ball b1"></div>
+  <div class="floating-ball b2"></div>
+  <div class="floating-ball b3"></div>
+  <div class="floating-ball b4"></div>
+  <div class="floating-ball b5"></div>
+
+  <nav class="navbar" id="navbar">
     <div class="logo-mark">⛳</div>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
@@ -30,83 +38,90 @@
       <span>📍 Sankt Jörgen Park, Göteborg</span>
       <span>🏆 Winner takes all the bragging rights</span>
     </div>
+
+    <div class="countdown" id="countdown" data-target="2026-07-11T08:00:00">
+      <div class="countdown-item"><span class="countdown-value" id="cd-days">00</span><span class="countdown-label">Days</span></div>
+      <div class="countdown-item"><span class="countdown-value" id="cd-hours">00</span><span class="countdown-label">Hours</span></div>
+      <div class="countdown-item"><span class="countdown-value" id="cd-mins">00</span><span class="countdown-label">Min</span></div>
+      <div class="countdown-item"><span class="countdown-value" id="cd-secs">00</span><span class="countdown-label">Sec</span></div>
+    </div>
   </div>
 </header>
 
 <main>
 
   <section id="players" class="section">
-    <h2 class="section-title">The Players</h2>
-    <p class="section-sub">7 legends. Handicaps don't lie (except when they do).</p>
+    <h2 class="section-title reveal">The Players</h2>
+    <p class="section-sub reveal">7 legends. Handicaps don't lie (except when they do).</p>
 
     <div class="player-grid">
 
-      <div class="player-card">
+      <div class="player-card reveal">
         <div class="card-badge">🏆 Defending Champ*</div>
         <div class="avatar">⛳</div>
         <h3>Jørgen Bugge</h3>
         <p class="nickname">"The Machine"</p>
-        <p class="handicap">Handicap: 9</p>
+        <p class="handicap">Handicap: <span class="counter" data-target="9">0</span></p>
         <p class="bio">The only single-digit handicap in the field. Plays like he's got a sponsorship deal on the line.</p>
         <p class="weakness">⚠️ Weakness: everyone else's terrible energy dragging him down</p>
       </div>
 
-      <div class="player-card">
+      <div class="player-card reveal">
         <div class="card-badge">🎯 Most Consistent</div>
         <div class="avatar">🏌️</div>
         <h3>Konrad Blix</h3>
         <p class="nickname">"Mr. Steady"</p>
-        <p class="handicap">Handicap: 12</p>
+        <p class="handicap">Handicap: <span class="counter" data-target="12">0</span></p>
         <p class="bio">Never the flashiest round, always in the mix. The dark horse everyone forgets about until Sunday.</p>
         <p class="weakness">⚠️ Weakness: getting cocky on the front nine</p>
       </div>
 
-      <div class="player-card">
+      <div class="player-card reveal">
         <div class="card-badge">🥷 Sneaky Good</div>
         <div class="avatar">🧑‍🦰</div>
         <h3>Adrian Kristiansen</h3>
         <p class="nickname">"The Ninja"</p>
-        <p class="handicap">Handicap: 13,4</p>
+        <p class="handicap">Handicap: <span class="counter" data-target="13.4">0</span></p>
         <p class="bio">Says he "hasn't played much this year." Shoots 82 anyway.</p>
         <p class="weakness">⚠️ Weakness: false modesty</p>
       </div>
 
-      <div class="player-card">
+      <div class="player-card reveal">
         <div class="card-badge">🎲 The Wildcard</div>
         <div class="avatar">🧔</div>
         <h3>Karl-Henrik Stenkjær</h3>
         <p class="nickname">"KH"</p>
-        <p class="handicap">Handicap: 14,7</p>
+        <p class="handicap">Handicap: <span class="counter" data-target="14.7">0</span></p>
         <p class="bio">Capable of a 75 and a 95 in the same weekend. Nobody, including him, knows which one shows up.</p>
         <p class="weakness">⚠️ Weakness: the first tee shot with everyone watching</p>
       </div>
 
-      <div class="player-card">
+      <div class="player-card reveal">
         <div class="card-badge">📈 Most Improved (Allegedly)</div>
         <div class="avatar">👨‍🦱</div>
         <h3>Christoffer Frantzen</h3>
         <p class="nickname">"Chris"</p>
-        <p class="handicap">Handicap: 25,3</p>
+        <p class="handicap">Handicap: <span class="counter" data-target="25.3">0</span></p>
         <p class="bio">Took a lesson once in 2019 and has been dining out on it ever since.</p>
         <p class="weakness">⚠️ Weakness: bunkers, rough, and fairways</p>
       </div>
 
-      <div class="player-card">
+      <div class="player-card reveal">
         <div class="card-badge">🌊 Aqua Man</div>
         <div class="avatar">🧑‍🦲</div>
         <h3>Rudi Fozzen Holdal</h3>
         <p class="nickname">"Splash"</p>
-        <p class="handicap">Handicap: 31,5</p>
+        <p class="handicap">Handicap: <span class="counter" data-target="31.5">0</span></p>
         <p class="bio">Single-handedly keeps the course's ball-diving business profitable.</p>
         <p class="weakness">⚠️ Weakness: literally any body of water</p>
       </div>
 
-      <div class="player-card">
+      <div class="player-card reveal">
         <div class="card-badge">💻 Commissioner & Website Guy</div>
         <div class="avatar">🧑‍💻</div>
         <h3>Jacob Fæste Jentoft</h3>
         <p class="nickname">"The Webmaster"</p>
-        <p class="handicap">Handicap: 36,7</p>
+        <p class="handicap">Handicap: <span class="counter" data-target="36.7">0</span></p>
         <p class="bio">Built this entire website himself, presumably to distract everyone from his handicap.</p>
         <p class="weakness">⚠️ Weakness: golf in general</p>
       </div>
@@ -115,17 +130,17 @@
   </section>
 
   <section id="venue" class="section alt">
-    <h2 class="section-title">The Venue</h2>
-    <p class="section-sub">Sankt Jörgen Park — where we'll golf badly in style.</p>
+    <h2 class="section-title reveal">The Venue</h2>
+    <p class="section-sub reveal">Sankt Jörgen Park — where we'll golf badly in style.</p>
 
     <div class="venue-grid">
-      <div class="venue-card">
+      <div class="venue-card reveal">
         <div class="venue-icon">⛳</div>
         <h3>Sankt Jörgen Park Golf</h3>
         <p>An 18-hole course set in well-maintained parkland just outside Göteborg — think fresh air, tidy fairways, and plenty of birdsong (and, per tradition, plenty of double bogeys).</p>
         <p><a href="https://www.sanktjorgenpark.se/paket/golfpaket" target="_blank" rel="noopener">View the golf packages →</a></p>
       </div>
-      <div class="venue-card">
+      <div class="venue-card reveal">
         <div class="venue-icon">🏨</div>
         <h3>Staying On-Site</h3>
         <p>We're staying right at Sankt Jörgen Park resort — heated Pool Club with cabanas, a spa, an on-site winery, and the Inez &amp; Ernst restaurant for the post-round debrief and inevitable score disputes.</p>
@@ -135,10 +150,10 @@
   </section>
 
   <section id="leaderboard" class="section alt">
-    <h2 class="section-title">Leaderboard</h2>
-    <p class="section-sub">Placeholder standings — will update live during the tournament.</p>
+    <h2 class="section-title reveal">Leaderboard</h2>
+    <p class="section-sub reveal">Placeholder standings — will update live during the tournament.</p>
 
-    <table class="leaderboard-table">
+    <table class="leaderboard-table reveal">
       <thead>
         <tr>
           <th>Pos</th>
@@ -165,6 +180,8 @@
 <footer class="footer">
   <p>Gøteborg Invitational — built with Claude Code, mostly out of spite for bad golf swings.</p>
 </footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
 <script src="js/script.js"></script>
 </body>
