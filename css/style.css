@@ -317,7 +317,7 @@ html.has-cursor .cursor-dot, html.has-cursor .cursor-ring { display: block; }
   perspective: 1400px;
 }
 .pcard {
-  position: relative; height: 420px;
+  position: relative; height: 500px;
   border-radius: 20px;
   outline: none;
   -webkit-tap-highlight-color: transparent;
@@ -362,13 +362,15 @@ html.has-cursor .cursor-dot, html.has-cursor .cursor-ring { display: block; }
   color: var(--blue);
 }
 .pcard-avatar {
-  width: 108px; height: 108px; border-radius: 50%;
-  display: grid; place-items: center; font-size: 52px;
-  margin: 14px 0 18px;
+  width: min(210px, 72%); aspect-ratio: 1; border-radius: 50%;
+  display: grid; place-items: center; font-size: 84px;
+  margin: 10px 0 16px;
   background: radial-gradient(circle at 35% 30%, var(--navy-glow), var(--navy-900) 75%);
   border: 2px solid var(--gold);
-  box-shadow: 0 0 34px rgba(217, 164, 65, 0.25), inset 0 0 24px rgba(47, 134, 201, 0.25);
+  box-shadow: 0 0 44px rgba(217, 164, 65, 0.3), inset 0 0 24px rgba(47, 134, 201, 0.25);
+  transition: box-shadow 0.3s;
 }
+.pcard:hover .pcard-avatar { box-shadow: 0 0 60px rgba(217, 164, 65, 0.45), inset 0 0 24px rgba(47, 134, 201, 0.25); }
 .pcard-name {
   font-family: var(--font-display); text-transform: uppercase;
   font-size: 23px; text-align: center; line-height: 1.1; letter-spacing: 0.02em;
