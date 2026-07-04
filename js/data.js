@@ -44,6 +44,7 @@ export const PLAYERS = [
   },
   {
     name: 'Karl-Henrik Stenkjær',
+    photo: 'assets/players/karl-henrik.jpg',
     nickname: 'The Keeper',
     hcp: 14.7,
     badge: '🎲 The Wildcard',
@@ -54,6 +55,7 @@ export const PLAYERS = [
   },
   {
     name: 'Christoffer Frantzen',
+    photo: 'assets/players/christoffer.jpg',
     nickname: 'Frantza',
     hcp: 25.3,
     badge: '📈 Most Improved (Allegedly)',
