@@ -10,6 +10,7 @@ export const ROUNDS = [
 export const PLAYERS = [
   {
     name: 'Jørgen Bugge',
+    photo: 'assets/players/jorgen.jpg',
     nickname: 'Bæ-Bu',
     hcp: 9,
     badge: '🏆 Defending Champ*',
@@ -20,6 +21,7 @@ export const PLAYERS = [
   },
   {
     name: 'Konrad Blix',
+    photo: 'assets/players/konrad.jpg',
     nickname: 'John Fette Daly',
     hcp: 12,
     badge: '🎯 Most Consistent',
@@ -31,6 +33,7 @@ export const PLAYERS = [
   },
   {
     name: 'Adrian Kristiansen',
+    photo: 'assets/players/adrian.jpg',
     nickname: 'Andreas',
     hcp: 13.4,
     badge: '🥷 Sneaky Good',
@@ -61,6 +64,7 @@ export const PLAYERS = [
   },
   {
     name: 'Rudi Fozzen Holdal',
+    photo: 'assets/players/rudi.jpg',
     nickname: 'Rude Mcilroy',
     hcp: 31.5,
     badge: '🌊 Aqua Man',
@@ -71,6 +75,7 @@ export const PLAYERS = [
   },
   {
     name: 'Jacob Fæste Jentoft',
+    photo: 'assets/players/jacob.jpg',
     nickname: 'Daddy',
     hcp: 36.7,
     badge: '💻 Commissioner & Website Guy',
