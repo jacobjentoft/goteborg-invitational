@@ -67,7 +67,7 @@ export const PLAYERS = [
   {
     name: 'Rudi Fozzen Holdal',
     photo: 'assets/players/rudi.jpg',
-    nickname: 'Rude Mcilroy',
+    nickname: 'Rude McIlroy',
     hcp: 31.5,
     badge: '🌊 Aqua Man',
     bio: 'Exactly like Rory McIlroy, minus 27 handicap strokes and plus a magnetic attraction to water. The swing is identical for the first ten centimetres.',
