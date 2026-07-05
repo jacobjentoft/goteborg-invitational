@@ -6,6 +6,7 @@ import { initCards } from './cards.js';
 import { initCountdown } from './countdown.js';
 import { initCursor } from './cursor.js';
 import { initNightlife } from './nightlife.js';
+import { initWeather } from './weather.js';
 import { initPutt } from './putt.js';
 import { initHero } from './hero.js';
 import { initScrollFX } from './scrollfx.js';
@@ -14,7 +15,7 @@ const ctx = {
   reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches,
 };
 
-for (const init of [initCards, initCountdown, initCursor, initNightlife, initPutt]) {
+for (const init of [initCards, initCountdown, initCursor, initNightlife, initWeather, initPutt]) {
   try { init(ctx); } catch (err) { console.error(err); }
 }
 

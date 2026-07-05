@@ -41,6 +41,7 @@
     <li><a href="#players" data-cursor>Players</a></li>
     <li><a href="#venue" data-cursor>Venue</a></li>
     <li><a href="#schedule" data-cursor>Schedule</a></li>
+    <li><a href="#weather" data-cursor>Weather</a></li>
     <li><a href="#leaderboard" data-cursor>Board</a></li>
     <li><a href="#nightlife" data-cursor>19th&nbsp;Hole</a></li>
     <li><a href="#game" data-cursor>While&nbsp;We&nbsp;Wait</a></li>
@@ -175,6 +176,25 @@
       <p class="tl-note">Very specifically 11:03. The trophy is decided. So are the excuses.</p>
     </article>
   </div>
+</section>
+
+<!-- ============================= WEATHER ============================= -->
+<section class="sec sec-weather" id="weather">
+  <header class="sec-head">
+    <p class="sec-kicker" data-reveal>Tee-time forecast</p>
+    <h2 class="sec-title" data-words>The weather</h2>
+    <p class="sec-sub" data-reveal>Live forecast for Sankt Jörgen Park at each tee time. Blaming the wind is permitted only above 8&nbsp;m/s.</p>
+  </header>
+
+  <div class="wx-grid" id="wxGrid">
+    <p class="wx-loading">Reading the skies over Göteborg…</p>
+  </div>
+
+  <p class="wx-attrib" data-reveal>
+    <span id="wxUpdated"></span> ·
+    Forecast data from <a href="https://www.yr.no/en/forecast/daily-table/2-2711537/Sweden/V%C3%A4stra%20G%C3%B6taland/Gothenburg%20Municipality/Gothenburg" target="_blank" rel="noopener" data-cursor>yr.no</a>
+    / <a href="https://api.met.no/" target="_blank" rel="noopener" data-cursor>MET Norway</a> (CC BY 4.0)
+  </p>
 </section>
 
 <!-- ============================ LEADERBOARD ============================ -->
