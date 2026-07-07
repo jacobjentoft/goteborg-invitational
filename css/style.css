@@ -678,6 +678,61 @@ input:checked ~ .pk-text { color: var(--muted); opacity: 0.65; text-decoration: 
 }
 .nl-legend { text-align: center; font-size: 12.5px; color: var(--muted); margin-bottom: 26px; }
 
+.wc-intro {
+  max-width: 720px; margin: 0 auto 30px; text-align: center;
+  border-radius: 20px; padding: clamp(22px, 3.5vw, 34px);
+  background:
+    radial-gradient(ellipse 100% 120% at 50% 0%, rgba(217, 164, 65, 0.14), transparent 65%),
+    linear-gradient(200deg, var(--navy-800), var(--navy-900));
+  border: 1px solid var(--gold);
+  box-shadow: 0 0 40px rgba(217, 164, 65, 0.15);
+}
+.wc-match {
+  font-family: var(--font-display); text-transform: uppercase;
+  font-size: clamp(26px, 5vw, 40px); line-height: 1.1; letter-spacing: 0.02em;
+}
+.wc-facts {
+  font-weight: 900; letter-spacing: 0.18em; text-transform: uppercase;
+  font-size: clamp(10px, 1.6vw, 13px); color: var(--gold-bright); margin-top: 8px;
+}
+.wc-note { font-size: 14.5px; color: var(--muted); margin-top: 14px; }
+.wc-note strong { color: var(--cream); }
+
+.nl-status {
+  font-weight: 900; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 999px; align-self: flex-start;
+}
+.nl-status.s-confirmed { background: rgba(37, 224, 106, 0.15); color: #25e06a; border: 1px solid rgba(37, 224, 106, 0.45); }
+.nl-status.s-likely { background: rgba(217, 164, 65, 0.15); color: var(--gold-bright); border: 1px solid rgba(217, 164, 65, 0.45); }
+.nl-status.s-unsure { background: rgba(224, 116, 37, 0.15); color: #e08a4a; border: 1px solid rgba(224, 116, 37, 0.45); }
+
+.nl-addr { font-size: 12.5px; color: var(--muted); font-weight: 700; }
+.nl-book { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 4px; }
+.nl-book-btn {
+  font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.1em;
+  font-size: 13px; color: var(--navy-950);
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  padding: 10px 20px; border-radius: 999px;
+  box-shadow: 0 4px 18px rgba(217, 164, 65, 0.35);
+  transition: transform 0.2s var(--ease-snap), box-shadow 0.2s;
+}
+.nl-book-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(217, 164, 65, 0.5); }
+.nl-link-chip {
+  font-size: 12px; font-weight: 900; color: var(--cream);
+  border: 1px solid rgba(47, 134, 201, 0.4); border-radius: 999px;
+  padding: 6px 13px; transition: border-color 0.2s, color 0.2s;
+}
+.nl-link-chip:hover { border-color: var(--gold); color: var(--gold-bright); }
+
+.nl-card.is-featured {
+  grid-column: 1 / -1;
+  border-color: var(--gold);
+  box-shadow: 0 0 40px rgba(217, 164, 65, 0.15);
+  background:
+    radial-gradient(ellipse 80% 120% at 85% 0%, rgba(217, 164, 65, 0.1), transparent 60%),
+    linear-gradient(200deg, rgba(12, 32, 56, 0.95), rgba(8, 21, 39, 0.95));
+}
+
 .nl-grid {
   display: grid; gap: clamp(14px, 1.8vw, 22px);
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

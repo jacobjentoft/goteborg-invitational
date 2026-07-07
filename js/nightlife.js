@@ -3,6 +3,7 @@
 // Ratings: damage 💸 (price), send-it 🔊 (energy), door roulette 🎲 (lower = safer).
 
 const CATS = {
+  wc: 'WC26',
   club: 'Clubs',
   pre: 'Pre-party',
   cocktail: 'Cocktails',
@@ -11,6 +12,43 @@ const CATS = {
 };
 
 const VENUES = [
+  // WC26 — where to watch Norway–England (QF, Sat July 11, 23:00 CEST)
+  { name: 'Jacy’z / Big Stage', cat: 'wc', zone: 'Gårda', featured: true,
+    status: { level: 'confirmed', text: '⭐ Confirmed: Norway–England shown here' },
+    address: 'Drakegatan 10',
+    blurb: 'Gothenburg’s most impressive arena experience for the World Cup: giant screen, surround sound, arena lighting. Free entry, bookable seats for a small fee — then skybar, pool and cocktails afterwards in the same building.',
+    links: [
+      { label: 'Book seats', href: 'https://vm.jacyzhotel.com/' },
+      { label: '🍽 Book the restaurant', href: 'https://jacyzhotel.com/restauranger-goteborg/boka-bord/' },
+    ] },
+  { name: 'Glenn Sportsbar Ullevi', cat: 'wc', zone: 'Ullevi',
+    status: { level: 'likely', text: 'Likely — call to confirm' },
+    address: 'Skånegatan 1',
+    blurb: 'Gothenburg’s official World Cup arena: two big outdoor screens, 16 more inside, five bars and a merch shop. Shows every WC match (unlike Glenn’s two other branches). Classic, unpretentious sportsbar right by Ullevi.',
+    links: [
+      { label: 'Book a table', href: 'https://glennsportsbar.se/' },
+      { label: '📞 031-757 77 77', href: 'tel:+46317577777' },
+      { label: '✉️ Email', href: 'mailto:info@glennsportsbar.se' },
+    ] },
+  { name: 'Corner, Gothia Towers', cat: 'wc', zone: 'Korsvägen',
+    status: { level: 'unsure', text: 'Uncertain — confirm before booking' },
+    address: 'Mässans gata 16 (Korsvägen)',
+    blurb: 'World Cup lounge with food and drinks served at the table, on Korsvägen next to Liseberg. Shows Sweden’s matches plus a selection of others — Norway–England is NOT guaranteed, so confirm before you book.',
+    links: [
+      { label: 'Book a table', href: 'https://www.bokabord.se/restaurang/corner-gothia-towers' },
+      { label: 'WC programme', href: 'https://cornergbg.se/' },
+      { label: '📞 031-750 88 05', href: 'tel:+46317508805' },
+      { label: '✉️ Email', href: 'mailto:restaurants@gothiatowers.com' },
+    ] },
+  { name: 'Nordic Sportsbar', cat: 'wc', zone: 'Mölndalsvägen',
+    status: { level: 'likely', text: 'Likely — call to confirm' },
+    address: 'Mölndalsvägen 95',
+    blurb: 'Sport plus bowling, shuffleboard, VR and air hockey — an entire night out, not just the ninety minutes.',
+    links: [
+      { label: 'Book a table', href: 'https://nordicsportsbar.se/' },
+      { label: '📞 031-19 19 19', href: 'tel:+4631191919' },
+      { label: '✉️ Email', href: 'mailto:info@nordicsportsbar.se' },
+    ] },
   // clubs
   { name: 'Yaki-Da', cat: 'club', zone: 'Avenyn (edge)',
     blurb: 'Four floors, four vibes: cocktail rooms, live music, DJs, sing-along pop, backyard terrace. Repeatedly voted best club in town. Packed and sticky after midnight — the best single-venue pick for seven.',
@@ -100,19 +138,38 @@ const dots = (n) =>
   Array.from({ length: 5 }, (_, i) => `<i class="${i < n ? 'on' : ''}"></i>`).join('');
 
 function venueHTML(v, i) {
+  const title = v.url
+    ? `<a href="${v.url}" target="_blank" rel="noopener" data-cursor>${v.name} ↗</a>`
+    : v.name;
+  const status = v.status
+    ? `<p class="nl-status s-${v.status.level}">${v.status.text}</p>`
+    : '';
+  const addr = v.address ? `<p class="nl-addr">📍 ${v.address}</p>` : '';
+  const links = v.links
+    ? `<div class="nl-book">${v.links.map((l, j) => `
+        <a class="${j === 0 ? 'nl-book-btn' : 'nl-link-chip'}" href="${l.href}"
+          ${l.href.startsWith('http') ? 'target="_blank" rel="noopener"' : ''} data-cursor>${l.label}${j === 0 ? ' ↗' : ''}</a>`).join('')}
+      </div>`
+    : '';
+  const ratings = v.r
+    ? `<div class="nl-ratings">
+        <span title="Damage — price hit">💸 ${dots(v.r[0])}</span>
+        <span title="Send-it — party energy">🔊 ${dots(v.r[1])}</span>
+        <span title="Door roulette — bouncer odds, lower is safer">🎲 ${dots(v.r[2])}</span>
+      </div>`
+    : '';
   return `
-  <article class="nl-card" style="animation-delay:${Math.min(i * 45, 400)}ms">
+  <article class="nl-card${v.featured ? ' is-featured' : ''}" style="animation-delay:${Math.min(i * 45, 400)}ms">
     <div class="nl-card-top">
       <span class="nl-cat">${CATS[v.cat]}</span>
       <span class="nl-zone">📍 ${v.zone}</span>
     </div>
-    <h4><a href="${v.url}" target="_blank" rel="noopener" data-cursor>${v.name} ↗</a></h4>
+    <h4>${title}</h4>
+    ${status}
     <p class="nl-blurb">${v.blurb}</p>
-    <div class="nl-ratings">
-      <span title="Damage — price hit">💸 ${dots(v.r[0])}</span>
-      <span title="Send-it — party energy">🔊 ${dots(v.r[1])}</span>
-      <span title="Door roulette — bouncer odds, lower is safer">🎲 ${dots(v.r[2])}</span>
-    </div>
+    ${addr}
+    ${links}
+    ${ratings}
   </article>`;
 }
 
@@ -121,9 +178,12 @@ export function initNightlife() {
   const tabs = document.querySelectorAll('.nl-tab');
   if (!grid) return;
 
+  const wcIntro = document.getElementById('wcIntro');
+
   function render(cat) {
     const list = cat === 'all' ? VENUES : VENUES.filter((v) => v.cat === cat);
     grid.innerHTML = list.map(venueHTML).join('');
+    if (wcIntro) wcIntro.hidden = cat !== 'wc';
   }
 
   tabs.forEach((tab) => {
