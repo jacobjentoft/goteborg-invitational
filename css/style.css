@@ -105,7 +105,13 @@ html.has-cursor .cursor-dot, html.has-cursor .cursor-ring { display: block; }
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 1px 0 rgba(217, 164, 65, 0.25);
 }
-.nav-logo img { height: 44px; width: auto; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5)); }
+.nav-logo {
+  display: grid; place-items: center;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff, #f4e8cd 60%, var(--gold-bright));
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45), 0 0 18px rgba(217, 164, 65, 0.25);
+}
+.nav-logo img { height: 40px; width: auto; }
 .nav-links {
   display: flex; gap: clamp(8px, 1.6vw, 26px); list-style: none;
   overflow-x: auto; scrollbar-width: none; max-width: 80vw;
@@ -177,8 +183,12 @@ html.has-cursor .cursor-dot, html.has-cursor .cursor-ring { display: block; }
   display: flex; flex-direction: column; align-items: center; gap: 18px;
 }
 .hero-logo {
-  height: clamp(90px, 14vw, 150px); width: auto;
-  filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.6));
+  height: clamp(110px, 16vw, 170px); aspect-ratio: 1; width: auto;
+  object-fit: contain;
+  padding: clamp(14px, 2vw, 22px);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff, #f4e8cd 58%, var(--gold-bright));
+  box-shadow: 0 12px 44px rgba(0, 0, 0, 0.55), 0 0 60px rgba(217, 164, 65, 0.3);
 }
 .hero-kicker {
   font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase;

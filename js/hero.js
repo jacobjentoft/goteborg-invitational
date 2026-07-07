@@ -26,7 +26,25 @@ function makeDimpleTexture(THREE) {
   return tex;
 }
 
-function makeParticles(THREE, count, color, size, spread) {
+// sprite for the drifting particles: a tiny shaded sphere, so the points
+// render as floating golf balls instead of the default squares
+function makeBallSprite(THREE) {
+  const c = document.createElement('canvas');
+  c.width = c.height = 64;
+  const ctx = c.getContext('2d');
+  const g = ctx.createRadialGradient(24, 22, 2, 32, 32, 30);
+  g.addColorStop(0, 'rgba(255,255,255,1)');
+  g.addColorStop(0.5, 'rgba(238,232,218,0.95)');
+  g.addColorStop(0.82, 'rgba(180,172,152,0.85)');
+  g.addColorStop(1, 'rgba(160,152,132,0)');
+  ctx.fillStyle = g;
+  ctx.beginPath();
+  ctx.arc(32, 32, 30, 0, Math.PI * 2);
+  ctx.fill();
+  return new THREE.CanvasTexture(c);
+}
+
+function makeParticles(THREE, count, color, size, spread, sprite) {
   const positions = new Float32Array(count * 3);
   for (let i = 0; i < count; i++) {
     positions[i * 3] = (Math.random() - 0.5) * spread[0];
@@ -36,8 +54,8 @@ function makeParticles(THREE, count, color, size, spread) {
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
   const mat = new THREE.PointsMaterial({
-    color, size, transparent: true, opacity: 0.75,
-    blending: THREE.AdditiveBlending, depthWrite: false, sizeAttenuation: true,
+    color, size, map: sprite, transparent: true, opacity: 0.9,
+    depthWrite: false, sizeAttenuation: true,
   });
   return new THREE.Points(geo, mat);
 }
@@ -94,8 +112,9 @@ export async function initHero({ reducedMotion }) {
   scene.add(rim);
   scene.add(new THREE.AmbientLight(0x0f2d4d, 2.0));
 
-  const goldDust = makeParticles(THREE, 220, 0xd9a441, 0.045, [24, 14, 8]);
-  const blueDust = makeParticles(THREE, 180, 0x2f86c9, 0.035, [26, 16, 10]);
+  const sprite = makeBallSprite(THREE);
+  const goldDust = makeParticles(THREE, 170, 0xffffff, 0.09, [24, 14, 8], sprite);
+  const blueDust = makeParticles(THREE, 120, 0xf2dcae, 0.07, [26, 16, 10], sprite);
   scene.add(goldDust, blueDust);
 
   function resize() {
