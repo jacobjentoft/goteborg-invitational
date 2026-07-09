@@ -467,37 +467,63 @@ html.has-cursor .cursor-dot, html.has-cursor .cursor-ring { display: block; }
   .venue-panel { width: min(92vw, 520px); min-height: 0; }
 }
 
-/* ---------- schedule / timeline ---------- */
+/* ---------- schedule / itinerary ---------- */
 
-.timeline { position: relative; max-width: 640px; margin: 0 auto; padding-left: 40px; }
-.timeline-line {
-  position: absolute; left: 11px; top: 8px; bottom: 8px; width: 3px;
-  background: rgba(47, 134, 201, 0.2); border-radius: 2px; overflow: hidden;
+.iti-days {
+  display: grid; gap: clamp(16px, 2vw, 26px);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 1240px; margin: 0 auto;
+  align-items: start;
 }
-.timeline-line span {
-  display: block; width: 100%; height: 100%;
-  background: linear-gradient(180deg, var(--blue), var(--gold));
-  transform-origin: 0 0; transform: scaleY(var(--fill, 1));
+.iti-day {
+  border-radius: 20px; padding: clamp(20px, 3vw, 28px);
+  background: linear-gradient(200deg, var(--navy-800), var(--navy-900));
+  border: 1px solid rgba(47, 134, 201, 0.25);
 }
-.tl-item { position: relative; padding: 0 0 clamp(40px, 6vh, 64px); }
-.tl-item:last-child { padding-bottom: 0; }
-.tl-dot {
-  position: absolute; left: -36px; top: 6px;
-  width: 15px; height: 15px; border-radius: 50%;
-  background: var(--navy-950); border: 3px solid var(--gold);
-  box-shadow: 0 0 16px rgba(217, 164, 65, 0.5);
+.iti-head {
+  font-family: var(--font-display); text-transform: uppercase;
+  font-size: 26px; letter-spacing: 0.03em; margin-bottom: 16px;
+  display: flex; align-items: baseline; gap: 10px;
 }
-.tl-day { font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; font-size: 12px; color: var(--blue); }
-.tl-time {
-  font-family: var(--font-display); font-size: clamp(44px, 7vw, 64px);
-  line-height: 1.05; color: var(--cream);
+.iti-head span {
+  font-family: var(--font-body); font-weight: 900; font-size: 12px;
+  letter-spacing: 0.22em; color: var(--blue);
 }
-.tl-time-odd {
-  background: linear-gradient(100deg, var(--gold), var(--gold-bright));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+.iti-list { list-style: none; display: flex; flex-direction: column; }
+.iti-list li {
+  display: flex; gap: 14px; align-items: baseline;
+  padding: 7px 10px; border-radius: 10px;
+  border-left: 3px solid transparent;
 }
-.tl-item h3 { font-family: var(--font-display); text-transform: uppercase; font-size: 20px; margin-top: 6px; letter-spacing: 0.03em; }
-.tl-note { color: var(--muted); font-size: 14.5px; margin-top: 4px; }
+.iti-list li:nth-child(odd) { background: rgba(47, 134, 201, 0.05); }
+.iti-list .t {
+  font-family: var(--font-display); font-size: 15px; letter-spacing: 0.06em;
+  color: var(--blue); flex-shrink: 0; width: 48px;
+  font-variant-numeric: tabular-nums;
+}
+.iti-list .e { font-size: 14px; font-weight: 700; color: var(--cream); line-height: 1.45; }
+.iti-list .e em {
+  display: block; font-style: italic; font-weight: 400;
+  font-size: 12px; color: var(--muted);
+}
+.iti-list .e a { color: var(--gold-bright); text-decoration: underline; text-underline-offset: 3px; }
+
+.iti-list li.is-tee {
+  background: rgba(217, 164, 65, 0.1);
+  border-left-color: var(--gold);
+  margin: 4px 0;
+}
+.iti-list li.is-tee .t { color: var(--gold-bright); font-size: 17px; }
+.iti-list li.is-tee .e { font-family: var(--font-display); font-weight: 400; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+.iti-list li.is-match {
+  background: rgba(37, 224, 106, 0.08);
+  border-left-color: #25e06a;
+  margin: 4px 0;
+}
+.iti-list li.is-match .t { color: #25e06a; }
+
+.iti-list li.is-mystery .e { color: var(--muted); font-style: italic; letter-spacing: 0.3em; }
 
 /* ---------- packing list ---------- */
 

@@ -94,12 +94,6 @@ export async function initScrollFX({ reducedMotion }) {
     return () => tween.scrollTrigger?.kill();
   });
 
-  // schedule timeline draws itself
-  gsap.fromTo('#timelineFill', { scaleY: 0 }, {
-    scaleY: 1, ease: 'none', transformOrigin: 'top center',
-    scrollTrigger: { trigger: '.timeline', start: 'top 75%', end: 'bottom 55%', scrub: true },
-  });
-
   // leaderboard rows slide in
   gsap.from('.board tbody tr', {
     x: -36, opacity: 0, duration: 0.55, stagger: 0.07, ease: 'power2.out',
